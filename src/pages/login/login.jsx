@@ -5,6 +5,7 @@ import pwd from '../../asserts/img/psww.png'
 
 
 import './login.css'
+import {Redirect} from "react-router";
 
 class Login extends Component {
 
@@ -48,6 +49,9 @@ class Login extends Component {
         }).then(
             (res)=> {
                 console.log(res);
+                if(document.cookie) {
+                    this.props.history.replace('/')
+                }
             },
             (err)=> {
                 console.log(err);
@@ -55,7 +59,12 @@ class Login extends Component {
         )
     }
 
+
+
     render() {
+        if(document.cookie) {
+            return <Redirect to='/'/>
+        }
         return (
             <div className='login_bgi'>
                 <div className='login_center'>

@@ -1,0 +1,147 @@
+.system_out {
+    border: 1px solid #1a2a3a;
+    width:400px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top:100px;
+}
+.system_out>ul {
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 3px solid aqua;
+    width:400px;
+    display:block;
+    background: #1a2a3a;
+    color: white;
+}
+
+.system_out>ul>li {
+    font-size:22px;
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    padding:10px;
+    border-right: 1px solid black;
+}
+
+.system_out>ul>li:nth-child(6) {
+    font-size:22px;
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    padding:10px;
+    border:0;
+}
+.navL_child {
+    color: white;
+    text-decoration: none;
+}
+
+.system_in {
+    display: inline-block;
+    height: 246px;
+    width: 400px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.system_out h4 {
+    display: inline-block;
+    margin: 2px;
+    width: 80px;
+}
+
+.system_out h4+ input {
+    margin-left:5px;
+    text-align: center;
+    color: #1a2a3a;
+    font-weight: bold;
+}
+
+.check {
+    width: 20px;
+    margin: 5px;
+}
+
+.btn_out {
+    position: relative;
+}
+.btn {
+    position:fixed;
+    margin-top: -10px;
+    margin-left: 360px;
+    width: 20px;
+    height:20px;
+    font-size: 0;
+    border-radius: 50%;
+    background-color: #1a2a3a;
+}
+
+.netBtn {
+    font-size:12px;
+    margin-right:5px;
+    color:white;
+    background: #1a2a3a;
+    width: 20px;
+    height:20px;
+    border-radius: 50%;
+    border: white;
+    display: inline-block;
+}
+
+.disposeBtn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background:#1a2a3a;
+    border: white;
+    font-size:0;
+    position: absolute;
+    margin-top: -31px;
+    margin-left: 360px;
+}
+
+
+.disposeD {
+    position: relative;
+}
+
+.disposeBtn2 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background:#1a2a3a;
+    border: white;
+    font-size:0;
+    position: absolute;
+    margin-left: 360px;
+    margin-top:180px;
+}
+
+.disposeBtnFtp {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background:#1a2a3a;
+    border: white;
+    font-size:0;
+    position: absolute;
+    margin-top: -16px;
+    margin-left: 360px;
+}
+
+.disposeBtnNet {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background:#1a2a3a;
+    border: white;
+    font-size:0;
+    position: absolute;
+    margin-top: 31px;
+    margin-left: 360px;
+}
+
+.disposeBtn:focus {
+    border: 1px solid aqua;
+}

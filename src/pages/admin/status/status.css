@@ -1,0 +1,36 @@
+.status {
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-top:40px;
+    position: relative;
+    padding-top:5px;
+    padding-left: 5px;
+}
+
+.status h4 {
+    display: inline-block;
+}
+
+.status button {
+    margin-left: 4px;
+    width: 64px;
+}
+
+.status input {
+    text-align: center;
+}
+
+.status ol {
+    margin-right: 0px;
+    position: absolute;
+    font-size: 16px;
+}
+
+.status li {
+    margin-left: 32px;
+}
+.status li:hover {
+    color: red;
+}

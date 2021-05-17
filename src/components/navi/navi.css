@@ -1,0 +1,42 @@
+
+.nav {
+    flex: 0 0 200px;
+    order: 1;
+    background: #1a2a3a;
+    color: white;
+}
+
+.nav>ul {
+    margin-left:5px;
+    margin-top:100px;
+    width:180px;
+    text-align: center;
+}
+
+.nav>li {
+    padding:20px;
+    list-style:decimal inside;
+}
+
+.nav>li:nth-child(1) {
+    list-style-image: url("../../asserts/img/定位.svg");
+}
+.nav>li:nth-child(2) {
+    list-style-image: url("../../asserts/img/设备.svg");
+}
+.nav>li:nth-child(3) {
+    list-style-image: url("../../asserts/img/状态.svg");
+}
+.nav>li:nth-child(4) {
+    list-style-image: url("../../asserts/img/版本信息.svg");
+}
+.nav>li:nth-child(5) {
+    list-style-image: url("../../asserts/img/终端在线升级.svg");
+}
+.nav>li:nth-child(6) {
+    list-style-image: url("../../asserts/img/SD卡.svg");
+}
+.nav>li:nth-child(7) {
+    list-style-image: url("../../asserts/img/定位.svg");
+
+}

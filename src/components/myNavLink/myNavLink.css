@@ -1,0 +1,13 @@
+.act {
+    color: aquamarine !important;
+}
+
+.navL {
+    color: white;
+    text-decoration: none;
+    font-size:20px;
+}
+
+.navL:hover {
+    color: aquamarine;
+}

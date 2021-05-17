@@ -1,0 +1,9 @@
+.reLoginBtn{
+    background-color: #1a2a3a;
+    color:white;
+    width:70px;
+    height: 40px;
+    border-radius: 8px;
+    margin:5px;
+    font-size:22px;
+}
