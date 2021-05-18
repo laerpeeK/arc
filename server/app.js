@@ -3,9 +3,11 @@ var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
 var session = require('express-session')
 var user = require('./user')
+var fs = require('fs')
 const mongoose = require('mongoose')
 var app = express()
 var User = undefined
+
 
 
 //连接数据库
@@ -59,6 +61,9 @@ app.use(bodyParser.json())
 //use cookie-parser
 app.use(cookieParser('laerpeek'))
 
+//static
+app.use(express.static(__dirname+'/public'))
+
 //use session
 app.use(session({
     name:'userInfo',
@@ -68,9 +73,9 @@ app.use(session({
     proxy: true
 }))
 
-
 //methods pre measure
 app.all('*',function(req, res,next) {
+    console.log(req.path)
     next()
 })
 
@@ -82,6 +87,16 @@ app.get('/',function(req, res){
     }
 })
 
+app.get('/getFile', function(req,res){
+    fs.readFile(__dirname+'/public/'+req.query.filename,function(err,docs){
+        if(err){
+            res.send(err)
+            return
+        }
+        res.send(docs.toJSON())
+    })
+})
+
 app.get('/loginOut',function(req, res){
     res.clearCookie('userInfo')
     res.clearCookie('name')
@@ -90,17 +105,22 @@ app.get('/loginOut',function(req, res){
 
 app.get('/status',function(req,res){
     console.log(req.query.timeStart, req.query.timeEnd)
-    User.find({name:'time'},function(err, docs){
+    fs.readdir(__dirname+'/public', function(err, docs){
         if(err){
             res.send(err)
             return
         }
-        var arr = Array.from(docs[0]['_doc']['filetime']).sort((a,b)=>{
-            return a-b
+        var  final = []
+        for(let i of docs) {
+            let data = i.match(/\d+/g)
+            final.push({ymd:data[2]+`000`, ms:data[3].substring(0,3), us: data[3].substring(3,6), ns: data[3].slice(6), file:i})
+        }
+        final = final.filter((num)=> {
+            return num.ymd>=req.query.timeStart && num.ymd <= req.query.timeEnd
+        }).sort((a,b)=>{
+            return a.ymd-b.ymd
         })
-        res.send( arr.filter((num)=>{
-            return  num>= req.query.timeStart && num<= req.query.timeEnd
-        }))
+        res.send(final)
     })
 })
 
@@ -157,7 +177,7 @@ app.post('/login', function(req, res){
 
 app.post('/system/collection',function(req,res) {
     console.log(req.body)
-    User.update({name:'collections'},{
+    User.update({name:'collection'},{
         reset: req.body.reset,
         adBit: req.body.adBit,
         debugModel: req.body.debugModel,
@@ -173,11 +193,18 @@ app.post('/system/collection',function(req,res) {
     })
 })
 
-app.get('/404',function(req, res){
-    res.statusCode = 404
-    res.send('404 -Not Found!')
+app.get('/403', function(req, res){
+    res.statusCode = 403
+    res.send('403 - Not Authorized!')
 })
 
+app.get('/404',function(req, res){
+    res.statusCode = 404
+    res.send('404 - Not Found!')
+})
+
+
+//监听端口
 app.listen(app.get('port'),function(){
     console.log('server started at port: '+app.get('port'))
 })

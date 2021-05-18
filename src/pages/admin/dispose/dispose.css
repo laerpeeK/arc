@@ -78,6 +78,7 @@
 }
 
 .netBtn {
+    cursor: pointer;
     font-size:12px;
     margin-right:5px;
     color:white;
@@ -99,6 +100,7 @@
     position: absolute;
     margin-top: -31px;
     margin-left: 360px;
+    cursor: pointer;
 }
 
 
@@ -140,6 +142,7 @@
     position: absolute;
     margin-top: 31px;
     margin-left: 360px;
+    cursor: pointer;
 }
 
 .disposeBtn:focus {

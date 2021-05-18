@@ -1,12 +1,13 @@
 .status {
     width: 800px;
     height: 600px;
-    border: 1px solid black;
+    border: 1px solid #1a2a3a;
     margin: 0 auto;
     margin-top:40px;
     position: relative;
     padding-top:5px;
-    padding-left: 5px;
+    padding-left: 15px;
+    border-radius: 6px;
 }
 
 .status h4 {
@@ -23,14 +24,30 @@
 }
 
 .status ol {
+    display: block;
     margin-right: 0px;
     position: absolute;
+    padding-right: 5px;
     font-size: 16px;
+    height:106px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .status li {
     margin-left: 32px;
+    cursor: pointer;
 }
-.status li:hover {
+.status li:hover, .status li:active {
     color: red;
 }
+
+
+.status-chart {
+    margin-top:120px;
+    margin-left:80px;
+    width: 600px;
+    height: 400px;
+    border: 1px solid black;
+}
+

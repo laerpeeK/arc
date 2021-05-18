@@ -49,6 +49,9 @@ class Login extends Component {
         }).then(
             (res)=> {
                 console.log(res);
+                if(res.data !== 'success'){
+                    this.setState({message:res.data})
+                }
                 if(document.cookie) {
                     this.props.history.replace('/')
                 }
