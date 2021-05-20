@@ -1,6 +1,6 @@
-<h1>C本科毕设《电弧故障检测系统Web端设计实现》DEMO</h1>
+<h1>本科毕设《电弧故障检测系统Web端设计实现》DEMO</h1>
 <div>
-     By:   ---Jack Fang---<br/>
+     By:   ---Jack Fang---CUG<br/>
   技术栈：React/CSS/Express/Mongodb<br/>
      Ps: 拒绝复制粘贴，可在此基础代码上进行开发。
 </div>
