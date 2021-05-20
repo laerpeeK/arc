@@ -48,7 +48,14 @@ var UserSchema = new Schema({
     mac: String,
     text: Number,
     binary: Number,
-    filetime: Array
+    filetime: Array,
+    ftpSet: String,
+    mainIp: String,
+    mainUserName: String,
+    mainPassword: String,
+    alterIp: String,
+    alterUserName: String,
+    alterPassWord: String,
 })
 
 //set port
@@ -125,6 +132,19 @@ app.get('/status',function(req,res){
 })
 
 app.get('/system/channel/:id',function(req,res){
+    if(!req.session.userInfo){
+        res.redirect('/login')
+    }
+    User.find({name:req.params.id},function(err,docs){
+        if(err){
+            res.send(err)
+            return
+        }
+        res.send(docs)
+    })
+})
+
+app.get('/system/network/:id',function(req,res){
     if(!req.session.userInfo){
         res.redirect('/login')
     }

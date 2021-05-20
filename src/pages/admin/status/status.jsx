@@ -78,7 +78,7 @@ class Status extends Component {
                         }
                 </ol>
                 <div className='status-chart'>
-                    <Chart data={this.state.data} graph={this.state.graph} rate={this.state.rate}/>
+                    <Chart timeStart={this.state.timeStart} graph={this.state.graph} rate={this.state.rate}/>
                 </div>
             </div>
         );
